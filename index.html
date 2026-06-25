@@ -2,9 +2,55 @@
 <html>
 <head>
   <title>Bagrut 2023 solution</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 30px auto;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+    td[contenteditable="true"]:focus {
+      background-color: #fff8dc;
+      outline: 2px solid #f39c12;
+    }
+  </style>
 </head>
 <body>
   <h1><u>שאלה 1</u></h1>
   <img src="https://github.com/gontar700/Bagrut_Summer_2023/1.jpeg">
+  <div>סעיף א פתרון</div>
+  <table id="editableTable">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 20 rows generated below -->
+    </tbody>
+  </table>
+  <script>
+    const tbody = document.querySelector("#editableTable tbody");
+    for (let i = 1; i <= 20; i++) {
+      const row = document.createElement("tr");
+      for (let j = 0; j < 3; j++) {
+        const cell = document.createElement("td");
+        cell.contentEditable = "true";
+        cell.textContent = "";
+        row.appendChild(cell);
+      }
+      tbody.appendChild(row);
+    }
+  </script>
 </body>
 </html>
