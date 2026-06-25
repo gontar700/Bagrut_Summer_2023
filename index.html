@@ -62,7 +62,7 @@
         <th>arr[i]</th>
         <th>sum</th>
         <th>arr[i].length</th>
-        <th>i < length</th>
+        <th>i &lt; length</th>
       </tr>
     </thead>
     <tbody>
@@ -97,7 +97,6 @@ public boolean success(int num){
   </div>
 
   <script>
-    // Generate table rows
     const tbody = document.querySelector("#editableTable tbody");
     for (let i = 1; i <= 15; i++) {
       const row = document.createElement("tr");
@@ -110,7 +109,6 @@ public boolean success(int num){
       tbody.appendChild(row);
     }
 
-    // Click-to-reveal blanks
     document.querySelectorAll(".blank").forEach(span => {
       span.addEventListener("click", () => {
         if (span.classList.contains("revealed")) {
@@ -123,7 +121,6 @@ public boolean success(int num){
       });
     });
 
-    // Save/load editable fields with localStorage
     document.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
       const saved = localStorage.getItem('field_' + index);
       if (saved) el.textContent = saved;
