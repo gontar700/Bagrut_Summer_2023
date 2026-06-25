@@ -62,20 +62,21 @@
   <h1><u>שאלה 2</u></h1>
   <img src="3.jpg">
   <div class="code-block">
-          public boolean success(int num){
-          int sum = 0, score, numMoreThen6=0;
-          double average, count = 0.0;
-          for(int i=1;i<=num;i++){
-              System.out.println("Insert score shot: "+i);
-              score = reader.nextInt();
-              if(<span class="blank" data-answer="score==10">....</span>) return true;
-              if(<span class="blank" data-answer="score>=6">....</span>) numMoreThen6++;
-              sum+=score;
-              count++;
-          }
-          average = sum / count;
-          return (<span class="blank" data-answer="average > 5.0 || (numMoreThen6>(count/2))">....</span>);
-      }
+public boolean success(int num){
+    int sum = 0, score, numMoreThen6=0;
+    double average, count = 0.0;
+    for(<span class="blank" data-answer="int i=1;i<=num;i++">....</span>){
+        System.out.println("Insert score shot: "+i);
+        score = reader.nextInt();
+        if(<span class="blank" data-answer="score==10">....</span>) return true;
+        if(<span class="blank" data-answer="score>=6">....</span>) numMoreThen6++;
+        sum+=score;
+        count++;
+    }
+    average = sum / count;
+    return (<span class="blank" data-answer="average > 5.0 || (numMoreThen6>(count/2))">....</span>);
+}
+</div>
   </div>
 <style>
   .blank {
@@ -94,16 +95,25 @@
   font-family: 'Consolas', 'Courier New', monospace;
   font-size: 15px;
   line-height: 1.6;
-  background-color: #1e1e1e;
-  color: #d4d4d4;
+  background-color: #ffffff;
+  color: #222;
   padding: 20px;
   border-radius: 8px;
   width: 80%;
   margin: 20px auto;
   white-space: pre-wrap;
   overflow-x: auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  border: 1px solid #333;
+  border: 1px solid #ccc;
+}
+
+.blank {
+  cursor: pointer;
+  font-weight: bold;
+  color: #b35900;
+}
+
+.blank.revealed {
+  color: #1a7f1a;
 }
 </style>
 
