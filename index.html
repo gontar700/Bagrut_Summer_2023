@@ -111,9 +111,18 @@ public int discounts(int age,int num, boolean city){
 </div>    
 </div>
   </div>
-  <h1><u>שאלה 4</u></h1>
+  <h1><u>שאלה 3</u></h1>
   <img src="5.jpg">
   <div>פתרון</div>
+  <div class="code-block">
+public int discounts(int age,int num, boolean city){
+    int result = 0;
+    if(<span class="blank" data-answer="age>=70">....</span>) <span class="blank" data-answer="result+=100;">....</span> else result+=200;
+    if(<span class="blank" data-answer="num>=3">....</span>) <span class="blank" data-answer="result+=10;">....</span> else result+=20;
+    if(<span class="blank" data-answer="city">....</span>) <span class="blank" data-answer="result+=1;">....</span> else result+=2;
+    return result;
+}
+</div>
   <script>
     const tbody = document.querySelector("#editableTable tbody");
     for (let i = 1; i <= 15; i++) {
