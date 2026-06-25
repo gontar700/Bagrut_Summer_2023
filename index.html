@@ -141,6 +141,17 @@ public boolean success(int num){
     }
   });
 });
+  // Save on every edit
+document.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
+  // Load saved value
+  const saved = localStorage.getItem('field_' + index);
+  if (saved) el.textContent = saved;
+
+  // Save on input
+  el.addEventListener('input', () => {
+    localStorage.setItem('field_' + index, el.textContent);
+  });
+});
 </script>
 </body>
 </html>
