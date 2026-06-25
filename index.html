@@ -3,37 +3,58 @@
 <head>
   <title>Bagrut 2023 solution</title>
   <style>
-  .blank {
-    cursor: pointer;
-    font-weight: bold;
-    color: #b35900;
-    background-color: transparent;
-  }
-  .blank.revealed {
-    color: #1a7f1a;
-  }
-  .code-block {
-    direction: ltr;
-    text-align: left;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 15px;
-    line-height: 1.6;
-    background-color: #ffffff;
-    color: #222;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    margin: 20px auto;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    border: 1px solid #ccc;
-  }
-</style>
+    table {
+      border-collapse: collapse;
+      width: 95%;
+      margin: 30px auto;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+    td[contenteditable="true"]:focus {
+      background-color: #fff8dc;
+      outline: 2px solid #f39c12;
+    }
+
+    .blank {
+      cursor: pointer;
+      font-weight: bold;
+      color: #b35900;
+      background-color: transparent;
+    }
+    .blank.revealed {
+      color: #1a7f1a;
+    }
+    .code-block {
+      direction: ltr;
+      text-align: left;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      background-color: #ffffff;
+      color: #222;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      margin: 20px auto;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body lang="he" style="text-align: right;">
+
   <h1><u>שאלה 1</u></h1>
   <img src="1.jpeg">
   <div>סעיף א פתרון</div>
+
   <table id="editableTable">
     <thead>
       <tr>
@@ -45,29 +66,19 @@
       </tr>
     </thead>
     <tbody>
-      <!-- 20 rows generated below -->
+      <!-- 15 rows generated below -->
     </tbody>
   </table>
-  <script>
-    const tbody = document.querySelector("#editableTable tbody");
-    for (let i = 1; i <= 15; i++) {
-      const row = document.createElement("tr");
-      for (let j = 0; j < 5; j++) {
-        const cell = document.createElement("td");
-        cell.contentEditable = "true";
-        cell.textContent = "";
-        row.appendChild(cell);
-      }
-      tbody.appendChild(row);
-    }
-  </script>
+
   <img src="2.jpg">
   <div>סעיף ב פתרון</div>
   <div contenteditable="true" style="border: 1px solid #333; padding: 10px; min-height: 100px; width: 80%; margin: 20px auto;">
-תשובתכם כאן  </div>
-  <div style="font-family: monospace; background:#f4f4f4; border:1px solid #ccc; padding:15px; width:80%; margin:20px auto; white-space:pre-wrap; border-radius:6px;">
+תשובתכם כאן
+  </div>
+
   <h1><u>שאלה 2</u></h1>
   <img src="3.jpg">
+
   <div class="code-block">
 public boolean success(int num){
     int sum = 0, score, numMoreThen6=0;
@@ -83,72 +94,45 @@ public boolean success(int num){
     average = sum / count;
     return (<span class="blank" data-answer="average > 5.0 || (numMoreThen6>(count/2))">....</span>);
 }
-</div>
   </div>
-<style>
-  .blank {
-    background-color: #ffe680;
-    padding: 2px 6px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  .blank.revealed {
-    background-color: #d4f7d4;
-  }
-  .code-block {
-  direction: ltr;
-  text-align: left;
-  font-family: 'Consolas', 'Courier New', monospace;
-  font-size: 15px;
-  line-height: 1.6;
-  background-color: #ffffff;
-  color: #222;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  margin: 20px auto;
-  white-space: pre-wrap;
-  overflow-x: auto;
-  border: 1px solid #ccc;
-}
 
-.blank {
-  cursor: pointer;
-  font-weight: bold;
-  color: #b35900;
-}
-
-.blank.revealed {
-  color: #1a7f1a;
-}
-</style>
-
-<script>
-  document.querySelectorAll(".blank").forEach(span => {
-    span.addEventListener("click", () => {
-      if (span.classList.contains("revealed")) {
-        span.textContent = "....";
-        span.classList.remove("revealed");
-      } else {
-        span.textContent = span.dataset.answer;
-        span.classList.add("revealed");
+  <script>
+    // Generate table rows
+    const tbody = document.querySelector("#editableTable tbody");
+    for (let i = 1; i <= 15; i++) {
+      const row = document.createElement("tr");
+      for (let j = 0; j < 5; j++) {
+        const cell = document.createElement("td");
+        cell.contentEditable = "true";
+        cell.textContent = "";
+        row.appendChild(cell);
       }
-    });
-  });
-</script>
-  
-  // Save on every edit
-document.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
-  // Load saved value
-  const saved = localStorage.getItem('field_' + index);
-  if (saved) el.textContent = saved;
+      tbody.appendChild(row);
+    }
 
-  // Save on input
-  el.addEventListener('input', () => {
-    localStorage.setItem('field_' + index, el.textContent);
-  });
-});
-</script>
+    // Click-to-reveal blanks
+    document.querySelectorAll(".blank").forEach(span => {
+      span.addEventListener("click", () => {
+        if (span.classList.contains("revealed")) {
+          span.textContent = "....";
+          span.classList.remove("revealed");
+        } else {
+          span.textContent = span.dataset.answer;
+          span.classList.add("revealed");
+        }
+      });
+    });
+
+    // Save/load editable fields with localStorage
+    document.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
+      const saved = localStorage.getItem('field_' + index);
+      if (saved) el.textContent = saved;
+
+      el.addEventListener('input', () => {
+        localStorage.setItem('field_' + index, el.textContent);
+      });
+    });
+  </script>
+
 </body>
 </html>
