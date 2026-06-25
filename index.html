@@ -136,18 +136,8 @@ public boolean success(int num){
       }
     });
   });
-
-  document.querySelectorAll(".blank").forEach(span => {
-  span.addEventListener("click", () => {
-    if (span.classList.contains("revealed")) {
-      span.textContent = "....";
-      span.classList.remove("revealed");
-    } else {
-      span.textContent = span.dataset.answer;
-      span.classList.add("revealed");
-    }
-  });
-});
+</script>
+  
   // Save on every edit
 document.querySelectorAll('[contenteditable="true"]').forEach((el, index) => {
   // Load saved value
