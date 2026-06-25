@@ -58,5 +58,50 @@
   <div>סעיף ב פתרון</div>
   <div contenteditable="true" style="border: 1px solid #333; padding: 10px; min-height: 100px; width: 80%; margin: 20px auto;">
 תשובתכם כאן  </div>
+  <div style="font-family: monospace; background:#f4f4f4; border:1px solid #ccc; padding:15px; width:80%; margin:20px auto; white-space:pre-wrap; border-radius:6px;">
+  <h1><u>שאלה 1</u></h1>
+  <img src="3.jpg">
+public boolean success(int num){
+    int sum = 0, score, numMoreThen6=0;
+    double average, count = 0.0;
+    for(int i=1;i<=num;i++){
+        System.out.println("Insert score shot: "+i);
+        score = reader.nextInt();
+        if(<span class="blank" data-answer="score==10">....</span>) return true;
+        if(<span class="blank" data-answer="score>=6">....</span>) numMoreThen6++;
+        sum+=score;
+        count++;
+    }
+    average = sum / count;
+    return (<span class="blank" data-answer="average > 5.0 || (numMoreThen6>(count/2))">....</span>);
+}
+</div>
+
+<style>
+  .blank {
+    background-color: #ffe680;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .blank.revealed {
+    background-color: #d4f7d4;
+  }
+</style>
+
+<script>
+  document.querySelectorAll(".blank").forEach(span => {
+    span.addEventListener("click", () => {
+      if (span.classList.contains("revealed")) {
+        span.textContent = "....";
+        span.classList.remove("revealed");
+      } else {
+        span.textContent = span.dataset.answer;
+        span.classList.add("revealed");
+      }
+    });
+  });
+</script>
 </body>
 </html>
