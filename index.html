@@ -148,6 +148,24 @@ public int discounts(int age,int num, boolean city){
 <div>
    <img src="6.jpg">   
 </div>
+  <div class="code-block">
+      public class Parking {
+    String id;
+    MyTime in;
+    MyTime out;
+
+    public String first(Parking[] cars){
+        MyTime time = cars[0].in;
+        Parking carR = cars[0];
+        for(Parking car:cars){
+            if(car.in.before(time)){
+                carR = car;
+            }
+        }
+        return carR.id;
+    }
+}
+  </div>
   <div "code-block">
     public class Parking {
     String id;
