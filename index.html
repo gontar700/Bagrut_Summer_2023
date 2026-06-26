@@ -113,7 +113,32 @@ public int discounts(int age,int num, boolean city){
   <img src="5.jpg">
   <div>פתרון</div>
   <div class="code-block">
+    
+   public deltas (boolean isLonger){
+        int[] temp = new int[100];
+        int[] modifiedArr;
+        int sum;
+        //this array holds all increasing results or decreasing results depends on isLonger true ot false
+        // using copyInResult help function
+        modifiedArr = copyInResult(this.arr,isLonger);
+        // diffrences is a function that returns array filled with diffrences
+        return diffrences(modifiedArr);
 
+    }
+
+  public int diffrences(int[] arr, boolean ...) {
+    int sum = 0;
+    if (...) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] < arr[...]) sum += (arr[...] - arr[i]);
+        }
+    } else {
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[...]) sum += (arr[i] - arr[...]);
+        }
+    }
+    return sum;
+}
   </div>
 
   <script>
